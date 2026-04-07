@@ -1,0 +1,9 @@
+# Hawk AI — backend developer dependencies
+brew "awscli"
+brew "helm"
+brew "jq"
+brew "k9s"
+brew "kubernetes-cli"
+brew "kustomize"
+cask "docker-desktop"
+cask "tunnelblick"

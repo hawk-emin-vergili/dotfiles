@@ -1,0 +1,8 @@
+# Copy to ~/.zshrc.local and fill in values
+# cp zshrc.local.example ~/.zshrc.local
+
+export AUTH0_DEV_API_CLIENT_SECRET=""
+
+# Hawk AI — Artifactory (alternative to ~/.gradle/gradle.properties)
+export ARTIFACTORY_USER="read-only"
+export ARTIFACTORY_PASSWORD=""

@@ -1,0 +1,13 @@
+{
+  "enabledPlugins": {
+    "agentic-productivity-toolkit@agentic-productivity-toolkit": true
+  },
+  "extraKnownMarketplaces": {
+    "agentic-productivity-toolkit": {
+      "source": {
+        "source": "github",
+        "repo": "hawk-ai-aml/agentic-productivity-toolkit"
+      }
+    }
+  }
+}

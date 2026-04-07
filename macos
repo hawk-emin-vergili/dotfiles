@@ -1,0 +1,84 @@
+#!/usr/bin/env bash
+#
+# macOS defaults — opinionated settings for a dev machine.
+# Run: make macos (or bash macos)
+# Some changes require a logout/restart to take full effect.
+
+set -euo pipefail
+
+echo "=== macOS defaults ==="
+
+# --- Dock & Mission Control ---
+
+# Auto-hide the Dock
+defaults write com.apple.dock autohide -bool true
+
+# Icon size 48px
+defaults write com.apple.dock tilesize -int 48
+
+# Don't automatically rearrange Spaces based on most recent use
+defaults write com.apple.dock mru-spaces -bool false
+
+# Don't show recent applications in Dock
+defaults write com.apple.dock show-recents -bool false
+
+# --- Keyboard & Input ---
+
+# Fast key repeat rate (lower = faster, default 6)
+defaults write NSGlobalDomain KeyRepeat -int 2
+
+# Short delay until repeat (lower = shorter, default 25)
+defaults write NSGlobalDomain InitialKeyRepeat -int 15
+
+# Disable auto-correct
+defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
+
+# Disable auto-capitalization
+defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false
+
+# Disable period substitution (double-space -> period)
+defaults write NSGlobalDomain NSAutomaticPeriodSubstitutionEnabled -bool false
+
+# Disable smart quotes
+defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
+
+# Disable smart dashes
+defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
+
+# --- Spotlight ---
+
+# Disable Spotlight and input source shortcuts so Raycast can use Cmd+Space
+# See: https://manual.raycast.com/hotkey
+# Key 64 = "Show Spotlight search" (Cmd+Space)
+# Key 60 = "Select the previous input source" (Ctrl+Space)
+for key in 64 60; do
+  /usr/libexec/PlistBuddy -c "Set :AppleSymbolicHotKeys:${key}:enabled false" ~/Library/Preferences/com.apple.symbolichotkeys.plist 2>/dev/null || \
+  /usr/libexec/PlistBuddy -c "Add :AppleSymbolicHotKeys:${key}:enabled bool false" ~/Library/Preferences/com.apple.symbolichotkeys.plist
+done
+
+# --- Trackpad ---
+
+# Disable "natural" (inverted) scrolling
+defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
+
+# --- Screenshots & UI ---
+
+# Save screenshots to ~/Screenshots
+mkdir -p "${HOME}/Screenshots"
+defaults write com.apple.screencapture location -string "${HOME}/Screenshots"
+
+# Screenshot format: PNG
+defaults write com.apple.screencapture type -string "png"
+
+# Disable screenshot shadow
+defaults write com.apple.screencapture disable-shadow -bool true
+
+# Speed up window resize animations
+defaults write NSGlobalDomain NSWindowResizeTime -float 0.1
+
+# --- Apply changes ---
+
+killall Dock 2>/dev/null || true
+killall SystemUIServer 2>/dev/null || true
+
+echo "=== done (some changes may require logout/restart) ==="

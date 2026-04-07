@@ -1,0 +1,6 @@
+# Copy to ~/.gradle/gradle.properties and fill in artifactory_password
+# cp hawk/gradle.properties.example ~/.gradle/gradle.properties
+
+artifactory_contextUrl=https://artifactory.dev.aml-ai.net/artifactory
+artifactory_user=read-only
+artifactory_password=<GET FROM TEAMMATE>

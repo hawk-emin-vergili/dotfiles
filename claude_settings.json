@@ -1,0 +1,7 @@
+{
+  "enabledPlugins": {
+    "claude-mermaid@claude-mermaid": true,
+    "playwright@claude-plugins-official": true,
+    "skill-creator@claude-plugins-official": true
+  }
+}

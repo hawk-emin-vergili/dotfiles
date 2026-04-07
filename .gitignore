@@ -1,0 +1,4 @@
+*.local
+.DS_Store
+.idea/
+chrome_bookmarks.json

@@ -1,0 +1,23 @@
+# CLI tools
+brew "gh"
+brew "git"
+brew "helm"
+brew "jq"
+brew "k9s"
+brew "kubernetes-cli"
+brew "kustomize"
+brew "nvm"
+brew "tldr"
+brew "uv"
+
+# Apps
+cask "bruno"
+cask "docker-desktop"
+cask "intellij-idea"
+cask "jetbrains-toolbox"
+cask "obsidian"
+cask "raycast"
+cask "slack"
+cask "tsh"
+cask "warp"
+cask "zoom"

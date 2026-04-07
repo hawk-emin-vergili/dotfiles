@@ -1,0 +1,9 @@
+[user]
+	name = eminvergili
+	email = emin.vergili@hawk.ai
+[push]
+	autoSetupRemote = true
+[pull]
+	ff = only
+[core]
+	autocrlf = input
